@@ -1,0 +1,16 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    .content {
+        width: 100vw;
+        height: calc(100vh - 50px);
+    }
+    .tab {
+        border-top: 1px solid #cccccc70;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+}

@@ -1,0 +1,17 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    .form {
+        width: 100vw;
+        height: calc(100vh - 46px);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .register {
+            text-align: right;
+            font-size: 14px;
+            color: #409EFF;
+        }
+    }
+}

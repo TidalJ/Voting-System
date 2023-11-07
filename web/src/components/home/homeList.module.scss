@@ -1,0 +1,39 @@
+.item {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    .userContent {
+        display: flex;
+        border-bottom: 1px solid #cccccc70;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        .image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .userRight {
+            margin-left: 10px;
+            font-size: 16px;
+            .sex, .count {
+                margin-top: 4px;
+                font-size: 14px;
+                color: #c4c1c1;
+            }
+        }
+    }
+    .content {
+        width: 100%;
+        overflow:hidden; 
+        text-overflow:ellipsis;
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2; 
+        word-wrap: break-word;
+        word-break: break-all;
+        color: #878686;
+        margin-top: 4px;
+    }
+}
