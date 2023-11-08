@@ -12,7 +12,7 @@ const Add = (props) => {
     const [options, setOptions] = useState([])
     const navigate = useNavigate()
     const onFinish = (values) => {
-        if(options.length === 2) {
+        if (options.length === 2) {
             const params = {
                 title: values.title,
                 content: values.content,
@@ -28,7 +28,7 @@ const Add = (props) => {
             params.time = [year, month, date].join('-') + ' ' + [hour, min, sec].join(':')
             params.options = JSON.stringify(tempOptions)
             articleAdd(params).then(res => {
-                if(res.code === 200) {
+                if (res.code === 200) {
                     Toast.show({ content: res.message })
                     navigate('/details/' + res.data.insertId + '/' + props.user.id)
                 }
@@ -41,11 +41,11 @@ const Add = (props) => {
         setOptionInput(value)
     }
     const addClick = () => {
-        if(optionInput !== '') {
-            if(options.length === 0) {
-                options.push({ id: 1, title: optionInput})
-            } else if(options.length < 2 && options[0].title !== optionInput) {
-                options.push({ id: options[options.length - 1].id + 1, title: optionInput})
+        if (optionInput !== '') {
+            if (options.length === 0) {
+                options.push({ id: 1, title: optionInput })
+            } else if (options.length < 2 && options[0].title !== optionInput) {
+                options.push({ id: options[options.length - 1].id + 1, title: optionInput })
             }
             setOptionInput('')
         }
@@ -66,8 +66,8 @@ const Add = (props) => {
                 }}
                 mode='card'
                 onFinish={onFinish}
-                footer={ <Button block type='submit' color='primary'>Submit</Button> }
-                >
+                footer={<Button block type='submit' color='primary'>Submit</Button>}
+            >
                 <Form.Item name='title' label='title' rules={[{ required: true }]}>
                     <Input type='title' placeholder='please enter the title' />
                 </Form.Item>
@@ -76,15 +76,15 @@ const Add = (props) => {
                 </Form.Item>
                 <div style={{ position: 'relative' }}>
                     <Form.Item label='options' rules={[{ required: true }]}>
-                        <div className={ styles.addBtn }>
-                            <Input onChange={ changeInput} maxLength={20} value={optionInput} />
+                        <div className={styles.addBtn}>
+                            <Input onChange={changeInput} maxLength={20} value={optionInput} />
                             <Button onClick={addClick} size='mini'>+</Button>
                         </div>
                         {
                             options.map(item =>
-                                <div key={item.id} className={ styles.option}>
-                                    <span>{ item.title }</span>
-                                    <span onClick={() => delClick(item.id)} className={styles.del}>删除</span>
+                                <div key={item.id} className={styles.option}>
+                                    <span>{item.title}</span>
+                                    <span onClick={() => delClick(item.id)} className={styles.del}>delete</span>
                                 </div>
                             )
                         }

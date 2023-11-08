@@ -1,19 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : 本地
- Source Server Type    : MySQL
- Source Server Version : 50550
- Source Host           : localhost:3306
- Source Schema         : vote
-
- Target Server Type    : MySQL
- Target Server Version : 50550
- File Encoding         : 65001
-
- Date: 07/11/2023 21:27:04
-*/
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -22,13 +6,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article`  (
-  `articleId` int(11) NOT NULL AUTO_INCREMENT COMMENT '调查文章的Id',
-  `userId` int(11) NOT NULL COMMENT '用户Id',
-  `content` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL COMMENT '投票的内容',
-  `options` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT '投票的可选项',
-  `time` datetime NOT NULL COMMENT '发布时间',
-  `title` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT '标题',
-  `articleCount` int(10) NOT NULL COMMENT '参与人数',
+  `articleId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'investigate the ID of the article',
+  `userId` int(11) NOT NULL COMMENT 'userId',
+  `content` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL COMMENT 'contents of the vote',
+  `options` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT 'voting options',
+  `time` datetime NOT NULL COMMENT 'release time',
+  `title` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT 'title',
+  `articleCount` int(10) NOT NULL COMMENT 'the number of participants',
   PRIMARY KEY (`articleId`, `userId`) USING BTREE,
   INDEX `userId`(`userId`) USING BTREE,
   INDEX `articleId`(`articleId`) USING BTREE,
@@ -40,14 +24,14 @@ CREATE TABLE `article`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
-  `username` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT '用户名',
-  `password` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT '密码',
-  `sex` enum('male','female') CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL DEFAULT 'male' COMMENT '性别',
-  `avatar` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT '用户头像',
-  `count` int(11) NOT NULL DEFAULT 0 COMMENT '用户回答的问题与发布的问题和(地位)',
-  `voteCount` int(11) NOT NULL DEFAULT 0 COMMENT '调查数量',
-  `answerCount` int(11) NOT NULL DEFAULT 0 COMMENT '回答数量',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'userid',
+  `username` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT 'username',
+  `password` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT 'password',
+  `sex` enum('male','female') CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL DEFAULT 'male' COMMENT 'gender',
+  `avatar` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT 'avatar',
+  `count` int(11) NOT NULL DEFAULT 0 COMMENT 'questions answered by users and posted questions(status)',
+  `voteCount` int(11) NOT NULL DEFAULT 0 COMMENT 'number of surveys',
+  `answerCount` int(11) NOT NULL DEFAULT 0 COMMENT 'number of answers',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = gbk COLLATE = gbk_chinese_ci ROW_FORMAT = Compact;
 
@@ -56,10 +40,10 @@ CREATE TABLE `users`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `vote`;
 CREATE TABLE `vote`  (
-  `voteId` int(11) NOT NULL AUTO_INCREMENT COMMENT '投票Id',
-  `articleId` int(11) NOT NULL COMMENT '调查Id',
-  `userId` int(11) NOT NULL COMMENT '用户Id',
-  `option` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT '选择的投票',
+  `voteId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'votingid',
+  `articleId` int(11) NOT NULL COMMENT 'surveyid',
+  `userId` int(11) NOT NULL COMMENT 'userid',
+  `option` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT 'option',
   PRIMARY KEY (`voteId`, `articleId`, `userId`) USING BTREE,
   INDEX `articleId`(`articleId`) USING BTREE,
   INDEX `userId`(`userId`) USING BTREE,

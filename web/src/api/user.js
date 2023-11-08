@@ -1,6 +1,6 @@
 import request from '../utils/request'
 
-// 登录
+// Login
 export const login = (data) => {
     return request({
         method: 'POST',
@@ -9,7 +9,7 @@ export const login = (data) => {
     })
 }
 
-// token
+// Token
 export const tokenGetId = (data) => {
     return request({
         method: 'POST',
@@ -18,7 +18,7 @@ export const tokenGetId = (data) => {
     })
 }
 
-// 注册
+// Register
 export const register = (data) => {
     return request({
         method: 'POST',
@@ -27,7 +27,7 @@ export const register = (data) => {
     })
 }
 
-// 初始化
+// Initialization
 export const init = (data) => {
     return request({
         method: 'POST',
@@ -36,7 +36,7 @@ export const init = (data) => {
     })
 }
 
-// 初始化
+// Init
 export const changeAvatar = (data) => {
     return request({
         method: 'POST',

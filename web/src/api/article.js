@@ -1,6 +1,6 @@
 import request from '../utils/request'
 
-// 添加调查
+// Add survey
 export const articleAdd = (data) => {
     return request({
         url: '/article/add',
@@ -8,7 +8,7 @@ export const articleAdd = (data) => {
         data
     })
 }
-// 调查列表
+// Survey list
 export const articleList = (data) => {
     return request({
         url: '/article/list',
@@ -16,7 +16,7 @@ export const articleList = (data) => {
         data
     })
 }
-// 调查详情信息
+// Survey details
 export const articleDetails = (data) => {
     return request({
         url: '/article/details',
@@ -25,7 +25,7 @@ export const articleDetails = (data) => {
     })
 }
 
-// 选择投票
+// Select to vote
 export const articleCheckoption = (data) => {
     return request({
         url: '/article/checkoption',
@@ -34,7 +34,7 @@ export const articleCheckoption = (data) => {
     })
 }
 
-// 已回答
+// Answered
 export const articleAnswered = (data) => {
     return request({
         url: '/article/answered',
@@ -43,7 +43,7 @@ export const articleAnswered = (data) => {
     })
 }
 
-// 未回答
+// Unanswered
 export const articleUnanswered = (data) => {
     return request({
         url: '/article/unanswered',
@@ -52,7 +52,7 @@ export const articleUnanswered = (data) => {
     })
 }
 
-// 用户排序
+// Ranking
 export const articleRanking = (data) => {
     return request({
         url: '/article/ranking',

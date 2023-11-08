@@ -4,13 +4,13 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // 本地运行配置，及反向代理配置
+  // Local running configuration, and reverse proxy configuration
   server: {
-    proxy: {// 本地开发环境通过代理实现跨域，生产环境使用 nginx 转发
+    proxy: {// The local development environment realizes cross-domain through proxy, and the production environment uses nginx forwarding.
       '^/api': {
-        target: 'http://localhost:8080', // 通过代理接口访问实际地址。这里是实际访问的地址。vue会通过代理服务器来代理请求
+        target: 'http://localhost:8080', // Access the real address through the proxy interface. Here is the actual address visited. Vue will proxy the request through the proxy server
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '') // 将api替换为空
+        rewrite: (path) => path.replace(/^\/api/, '') // Replace api with empty
       }
     }
   }
